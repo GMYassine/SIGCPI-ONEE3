@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Calibri';
+    src: url('../font/calibri-regular.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Calibri', sans-serif !important;
+}
+
+input,textarea,select {
+    border:solid 1px #0082d9 !important;
+}
+
+header {
+    background-image: url('../img/bg.svg'), linear-gradient(90deg, #0082d9 0%, #ffffff 40%, #ffffff 60%, #0082d9 100%) !important;
+    background-repeat: no-repeat;
+    background-size: 20%, cover;
+    background-position: 50% 45%, center;
+    padding: 15px 0;
+}
+
+.addition {
+    padding: 10px;
+    transform: translateX(-5px);
+}
+
+.border-cosmic {
+    border: solid 1px #999 !important;
+    border-radius: 0 !important;
+}
+
+header .navbar-brand {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+header .navbar-brand img {
+    margin-right: 10px;
+}
+
+header .btn {
+    font-size: 1rem;
+    border-radius: 20px;
+}
+
+header .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+header .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.invisible-block {
+    height: 70vh;
+}
+
+.rounded-0-left {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.rounded-0-right {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.search {
+    text-align: center;
+    font-family: monospace;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #9acd32;
+    color: #fff;
+}
