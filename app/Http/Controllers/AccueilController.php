@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Mail;
+use Exception;
 Session::start();
 
 // models
@@ -14,7 +16,9 @@ use App\Models\declaration;
 use App\Models\maintenance;
 use App\Models\societe_maintenance;
 use App\Models\enregistrement;
-use Exception;
+
+// mails
+use App\Mail\maintenanceTermine;
 
 class AccueilController extends Controller
 {
@@ -159,28 +163,49 @@ class AccueilController extends Controller
             $declarations = declaration::whereIn('matricule', $entiteAgents)->get();
         }
     
+        for($i=0;$i<count($declarations);$i++){
+            $maintenance = maintenance::where('refDeclaration',$declarations[$i]->refDeclaration)->first();
+            if($maintenance){
+                $declarations[$i]["is_maintenance"] = true;
+                $declarations[$i]["refMaintenance"] = $maintenance->refMaintenance;
+            }else{
+                $declarations[$i]["is_maintenance"] = false;
+            }
+        }
+
         return view('accueil.admin.consulter-declarations',['agent'=>$this->agent,'declarations'=>$declarations]);
     }
     
     public function maintenances_courants(){
-        $entiteAgents = [];
-        if ($this->agent->entite->agents) {
-            $entiteAgents = $this->agent->entite->agents->pluck('matricule');
-        }
+        if(session('maintenances')){
+            $maintenances = session('maintenances');
 
-        $entiteMaterials = [];
-        if (!empty($entiteAgents)) {
-            $entiteMaterials = material::whereIn('matricule', $entiteAgents)->pluck('codeONEE');
-        }
+        }else{
+            $entiteAgents = [];
+            if ($this->agent->entite->agents) {
+                $entiteAgents = $this->agent->entite->agents->pluck('matricule');
+            }
 
-        $maintenances = [];
-        if (!empty($entiteMaterials)) {
-            $maintenances = maintenance::whereIn('codeONEE', $entiteMaterials)->get();
+            $entiteMaterials = [];
+            if (!empty($entiteAgents)) {
+                $entiteMaterials = material::whereIn('matricule', $entiteAgents)->pluck('codeONEE');
+            }
+
+            $maintenances = [];
+            if (!empty($entiteMaterials)) {
+                $maintenances = maintenance::whereIn('codeONEE', $entiteMaterials)->get();
+            }
+
         }
-    
         return view('accueil.admin.maintenances-courants',['agent'=>$this->agent,'maintenances'=>$maintenances]);
     }
     
+    public function rechercher_maintenance(string $refMaintenance){
+        $maintenances = maintenance::where('refMaintenance',$refMaintenance)->get();
+
+        return redirect()->route('maintenances-courants',['search'=>true])->with(['maintenances'=>$maintenances]);
+    }
+
     public function lister_tous_materielles(){
         if(request('search')){
             $materials = session('materials');
@@ -369,12 +394,13 @@ class AccueilController extends Controller
 
         // envoyer un email
         $maintenance = maintenance::where('refMaintenance', $refMaintenance)->first();
-        $email = $maintenance->material->agent->emailAgent;
-        // here
-        /////////////////
-        /////////////////
-        /////////////////
-        /////////////////
+        $emailAgent = $maintenance->material->agent->emailAgent;
+
+        $email = new maintenanceTermine([
+            'agentFullName'=>$maintenance->material->agent->nomAgent.' '.$maintenance->material->agent->prenomAgent,
+            'materialDesignation'=>$maintenance->material->designation,
+        ]);
+        Mail::to($emailAgent)->send($email);
 
         // enregistrer l'action
         $this->enregistrer_action(

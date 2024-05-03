@@ -1,15 +1,16 @@
-@extends('..layouts.accueil')
+@extends('layouts.accueil')
 
 @section('title','Maintenances courants')
 
 @section('main')
+@if(request('search'))<div class="search">↓ Resultats de recherche ↓</div>@endif
 <table class="table table-striped border-cosmic">
     <tr>
         <th scope="col">Réference</th>
         <th scope="col">Matérial</th>
         <th scope="col">Date de début</th>
         <th scope="col">Date de fin</th>
-        <th scope="col">Etat</th>
+        <th scope="col">Statut</th>
         <th scope="col">Action</th>
         <th scope="col"><small class="text-primary text-nowrap">Total ({{ count($maintenances) }})</small></th>
     </tr>

@@ -41,6 +41,12 @@ Route::get('/maintenances-courants',[AccueilController::class,'maintenances_cour
     EnsureAdminPrivileges::class
     ])->name('maintenances-courants');
 
+Route::get('/rechercher-maintenance/{refMaintenance}',[AccueilController::class,'rechercher_maintenance'])->middleware([
+    EnsureAuthentification::class,
+    EnsureAdminPrivileges::class
+    ])->name('rechercher-maintenance');
+
+
 Route::get('/lister-tous-materielles',[AccueilController::class,'lister_tous_materielles'])->middleware([
     EnsureAuthentification::class,
     EnsureAdminPrivileges::class

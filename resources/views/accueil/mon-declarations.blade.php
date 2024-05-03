@@ -23,7 +23,7 @@
         <td class="text-nowrap">{{ $declaration->dateDeclaration }}</td>
         <td>
             @if($declaration->est_ferme == 'true' && $declaration->is_maintenance )
-                <a href="{{ route('voir-details-maintenance',$declaration->refMaintenance) }}" class="text-primary text-nowrap"><i class="bi bi-eye"></i>&nbsp;voir maintenance</a><br>
+                <a href="{{ route('voir-details-maintenance',$declaration->refMaintenance) }}" class="text-primary text-nowrap"><i class="bi bi-search"></i>&nbsp;voir maintenance</a><br>
             @else
                 <span class="text-muted text-nowrap text-decoration-underline"><i class="bi bi-clock-history"></i>&nbsp;en cours de traitement</span>
             @endif

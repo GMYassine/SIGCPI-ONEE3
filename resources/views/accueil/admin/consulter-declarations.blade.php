@@ -1,4 +1,4 @@
-@extends('..layouts.accueil')
+@extends('layouts.accueil')
 
 @section('title','Consulter les Déclarations')
 
@@ -11,6 +11,7 @@
         <th scope="col">Description</th>
         <th scope="col">Matérial</th>
         <th scope="col">Date</th>
+        <th scope="col">Statut</th>  
         <th scope="col">Action</th>
         <th scope="col"><small class="text-primary text-nowrap">Total ({{ count($declarations) }})</small></th>
     </tr>
@@ -25,9 +26,21 @@
         <td class="text-nowrap">{{ $declaration->dateDeclaration }}</td>
         <td>
             @if($declaration->est_ferme == 'false')
-                <a href="{{ route('envoyer-a-maintenance',[$declaration->material->codeONEE,'consulter-declarations',$declaration->refDeclaration]) }}" class="text-warning text-nowrap"><i class="bi bi-recycle"></i>&nbsp;envoyer à maintenance</a><br>
+            <span class="text-bold"><i class="bi bi-folder2-open"></i>&nbsp;ouvrir</span>
+
             @else
-                <a class="text-muted text-nowrap"><i class="bi bi-archive"></i>&nbsp;déclaration clôturée</a><br>
+            <span class="text-bold"><i class="bi bi-folder2"></i>&nbsp;fermé</span>
+
+            @endif
+        </td>
+        <td>
+            @if($declaration->est_ferme == 'false')
+                <a href="{{ route('envoyer-a-maintenance',[$declaration->material->codeONEE,'consulter-declarations',$declaration->refDeclaration]) }}" class="text-warning text-nowrap"><i class="bi bi-recycle"></i>&nbsp;envoyer à maintenance</a><br>
+
+            @else
+                @if($declaration->is_maintenance)
+                    <a href="{{ route('rechercher-maintenance',$declaration->refMaintenance) }}" class="text-primary text-nowrap"><i class="bi bi-search"></i>&nbsp;voir maintenance</a><br>
+                @endif
             @endif
         </td>
         <td colspan="0"></td>

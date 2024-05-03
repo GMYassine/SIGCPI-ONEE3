@@ -1,4 +1,4 @@
-@extends('..layouts.accueil')
+@extends('layouts.accueil')
 
 @section('title','Modifier un Agent')
 
