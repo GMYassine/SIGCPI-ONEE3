@@ -427,8 +427,7 @@ class AccueilController extends Controller
 
     }
 
-    public function valider_ajouter_materiel(Request $request)
-    {
+    public function valider_ajouter_materiel(Request $q){
         $rules = [
             'sousFamille' => 'required|in:Ordinateur & serveur,Impression & Numérisation',
             'designation' => 'required|string',
@@ -437,7 +436,7 @@ class AccueilController extends Controller
             'numSerie' => 'required|string',
             'contratAcquisition' => 'required|string',
             'objectif' => 'required|string',
-            'annee' => 'required|integer',
+            'annee' => 'required|date_format:Y',
             'titulaireMarche' => 'required|string',
             'statut' => 'required|in:actif,hors service',
         ];
@@ -452,13 +451,13 @@ class AccueilController extends Controller
             'contratAcquisition.required' => 'Le champ contrat d\'acquisition est requis.',
             'objectif.required' => 'Le champ objectif est requis.',
             'annee.required' => 'Le champ année est requis.',
-            'annee.integer' => 'Le champ année doit être un entier.',
+            'annee.date_format' => 'Le champ année doit être une année valide.',
             'titulaireMarche.required' => 'Le champ titulaire du marché est requis.',
             'statut.required' => 'Le champ statut est requis.',
             'statut.in' => 'Le statut doit être "actif" ou "hors service".',
-        ];
+        ];        
         
-        $validatedData = $request->validate($rules, $messages);
+        $validatedData = $q->validate($rules, $messages);
         
         $material = new material();
         $material->sousFamille = $validatedData['sousFamille'];
@@ -493,7 +492,7 @@ class AccueilController extends Controller
             'numSerie' => 'required|string',
             'contratAcquisition' => 'required|string',
             'objectif' => 'required|string',
-            'annee' => 'required|integer',
+            'annee' => 'required|date_format:Y',
             'titulaireMarche' => 'required|string',
             'statut' => 'required|in:actif,hors service',
         ];
@@ -508,11 +507,11 @@ class AccueilController extends Controller
             'contratAcquisition.required' => 'Le champ contrat d\'acquisition est requis.',
             'objectif.required' => 'Le champ objectif est requis.',
             'annee.required' => 'Le champ année est requis.',
-            'annee.integer' => 'Le champ année doit être un entier.',
+            'annee.date_format' => 'Le champ année doit être une année valide.',
             'titulaireMarche.required' => 'Le champ titulaire du marché est requis.',
             'statut.required' => 'Le champ statut est requis.',
             'statut.in' => 'Le statut doit être "actif" ou "hors service".',
-        ];
+        ];        
         
         $validatedData = $q->validate($rules, $messages);
         

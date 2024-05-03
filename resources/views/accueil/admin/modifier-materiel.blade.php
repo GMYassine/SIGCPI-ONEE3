@@ -38,7 +38,7 @@
     </div>
     <div class="form-group">
         <label class="my-1">Année</label>
-        <input type="number" class="form-control" name="annee" value="{{ $material->annee }}">
+        <input type="number" class="form-control" max="{{ date('Y') }}" name="annee" value="{{ $material->annee }}">
     </div>
     <div class="form-group">
         <label class="my-1">Titulaire du marché</label>
