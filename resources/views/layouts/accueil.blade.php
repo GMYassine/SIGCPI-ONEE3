@@ -26,6 +26,7 @@
         </div>    
     @endif
 
+    <!-- Welcome alert -->
     @if(request('welcome'))
         <div class="alert alert-info alert-dismissible fade show my-2" role="alert" style="border-radius: 10px; padding: 1rem; border: none; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
             <i class="bi bi-info-circle-fill" style="color: #0c5460; font-size: 1.2rem;"></i>&nbsp;
@@ -47,12 +48,12 @@
                             <small class="text-decoration-underline d-block"><i class="bi bi-pencil-square"></i>&nbsp;Mise à jourer compte</small>
                         </div>
                     </a>
-                    <a href="{{ route('mon-materielles') }}" class="list-group-item list-group-item-action text-decoration-underline">Mon Matérielles</a>
+                    <a href="{{ route('mon-materielles') }}" class="list-group-item list-group-item-action text-decoration-underline">Mon Matériel</a>
                     <a href="{{ route('mon-declarations') }}" class="list-group-item list-group-item-action text-decoration-underline">Mon Déclarations</a>
                     @if($agent->est_admin == 'true')
                         <a href="{{ route('consulter-declarations') }}" class="list-group-item list-group-item-action text-decoration-underline">Consulter les Déclarations</a>
                         <a href="{{ route('maintenances-courants') }}" class="list-group-item list-group-item-action text-decoration-underline">Maintenances courants</a>
-                        <a href="{{ route('lister-tous-materielles') }}" class="list-group-item list-group-item-action text-decoration-underline">Lister tous les Matérielles</a>
+                        <a href="{{ route('lister-tous-materielles') }}" class="list-group-item list-group-item-action text-decoration-underline">Lister tous les Matériels</a>
                         <a href="{{ route('lister-tous-agents') }}" class="list-group-item list-group-item-action text-decoration-underline">Lister tous les Agents</a>
                     @endif
                 </div>

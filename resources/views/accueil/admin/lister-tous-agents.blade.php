@@ -39,7 +39,7 @@
             </div>
         </td>        
         <td>
-            <a href="{{ route('rechercher-materiel',['matricule'=>$oneAgent->matricule]) }}" class="text-nowrap"><i class="bi bi-eye"></i>&nbsp;voir les materielles</a><br>
+            <a href="{{ route('rechercher-materiel',['matricule'=>$oneAgent->matricule]) }}" class="text-nowrap"><i class="bi bi-eye"></i>&nbsp;voir les Matériels</a><br>
             <a href="{{ route('manager-suspender-agent',$oneAgent->matricule) }}" onclick="return confirm('es-tu sûr?');" class="text-{{ $oneAgent->est_suspender == 'true' ? 'success' : 'danger' }} text-nowrap"><i class="bi bi-{{ $oneAgent->est_suspender == 'true' ? 'slash-circle' : 'ban' }}"></i>&nbsp;{{ $oneAgent->est_suspender == 'true' ? 'réactiver compte' : 'suspender compte' }}</a><br>
             <a href="{{ route('modifier-agent',$oneAgent->matricule) }}" class="text-info text-nowrap"><i class="bi bi-pencil-square"></i>&nbsp;modifier les informations</a><br>    
         </td>
