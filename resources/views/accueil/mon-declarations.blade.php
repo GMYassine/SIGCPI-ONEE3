@@ -5,10 +5,10 @@
 @section('main')
 <table class="table table-striped border-cosmic">
     <tr>
-        <th scope="col">Numéro de déclaration</th>
-        <th scope="col">Raisons principales</th>
+        <th scope="col">Numéro de Déclaration</th>
+        <th scope="col">Raisons Principales</th>
         <th scope="col">Description</th>
-        <th scope="col">Matérial</th>
+        <th scope="col">Matériel</th>
         <th scope="col">Date</th>
         <th scope="col">Action</th>
         <th scope="col"><small class="text-primary text-nowrap">Total ({{ count($declarations) }})</small></th>
@@ -23,9 +23,9 @@
         <td class="text-nowrap">{{ $declaration->dateDeclaration }}</td>
         <td>
             @if($declaration->est_ferme == 'true' && $declaration->is_maintenance )
-                <a href="{{ route('voir-details-maintenance',$declaration->refMaintenance) }}" class="text-primary text-nowrap"><i class="bi bi-search"></i>&nbsp;voir maintenance</a><br>
+                <a href="{{ route('voir-details-maintenance',$declaration->refMaintenance) }}" class="text-primary text-nowrap"><i class="bi bi-search"></i>&nbsp;Voir Maintenance</a><br>
             @else
-                <span class="text-muted text-nowrap text-decoration-underline"><i class="bi bi-clock-history"></i>&nbsp;en cours de traitement</span>
+                <span class="text-muted text-nowrap text-decoration-underline"><i class="bi bi-clock-history"></i>&nbsp;En Cours de Traitement</span>
             @endif
         </td>
         <td colspan="0"></td>

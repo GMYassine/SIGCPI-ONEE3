@@ -5,7 +5,7 @@
 @section('main')
 <table class="table table-striped border-cosmic">
     <tr>
-        <th scope="col">Sous-Famille</th>
+        <th scope="col">Sous-famille</th>
         <th scope="col">Désignation</th>
         <th scope="col">Marque</th>
         <th scope="col">Objectif</th>
@@ -20,18 +20,18 @@
         <td>{{ $material->sousFamille }}</td>
         <td>{{ $material->designation }}</td>
         <td>{{ $material->marque }}</td>
-        <td>{{ 	$material->objectif }}</td>
+        <td>{{ $material->objectif }}</td>
         <td>{{ $material->annee }}</td>
         <td>
             @if($material->statut == 'actif')
-                <span class="text-success text-nowrap"><i class="bi bi-circle-fill"></i>&nbsp;actif</span>
+                <span class="text-success text-nowrap"><i class="bi bi-circle-fill"></i>&nbsp;Actif</span>
             @else
-                <span class="text-danger text-nowrap"><i class="bi bi-circle-fill"></i>&nbsp;hors service</span>
+                <span class="text-danger text-nowrap"><i class="bi bi-circle-fill"></i>&nbsp;Hors Service</span>
             @endif
         </td>
         <td>
-            <a href="{{ route('voir-details',$material->codeONEE) }}"><i class="bi bi-eye"></i>&nbsp;voir details</a><br>
-            <a href="{{ route('declarer-probleme',$material->codeONEE) }}" class="text-warning text-nowrap"><i class="bi bi-flag-fill"></i>&nbsp;déclarer problème</a>
+            <a href="{{ route('voir-details',$material->codeONEE) }}"><i class="bi bi-eye"></i>&nbsp;Voir Détails</a><br>
+            <a href="{{ route('declarer-probleme',$material->codeONEE) }}" class="text-warning text-nowrap"><i class="bi bi-flag-fill"></i>&nbsp;Déclarer Problème</a>
         </td>
 
         <td colspan="0"></td>

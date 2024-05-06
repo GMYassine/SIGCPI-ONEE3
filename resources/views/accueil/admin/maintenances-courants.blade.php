@@ -1,13 +1,13 @@
 @extends('layouts.accueil')
 
-@section('title','Maintenances courants')
+@section('title','Maintenances courantes')
 
 @section('main')
-@if(request('search'))<div class="search">↓ Resultats de recherche ↓</div>@endif
+@if(request('search'))<div class="search">↓ Résultats de recherche ↓</div>@endif
 <table class="table table-striped border-cosmic">
     <tr>
-        <th scope="col">Réference</th>
-        <th scope="col">Matérial</th>
+        <th scope="col">Référence</th>
+        <th scope="col">Matériel</th>
         <th scope="col">Date de début</th>
         <th scope="col">Date de fin</th>
         <th scope="col">Statut</th>
@@ -23,21 +23,18 @@
         <td>{{ $maintenance->dateFinMaintenance }}</td>
         <td>
             @if($maintenance->etat == 'en cours')
-                <span class="text-bold"><i class="bi bi-clock-fill"></i>&nbsp;en cours</span>
-
+                <span class="text-bold"><i class="bi bi-clock-fill"></i>&nbsp;En cours</span>
             @else
-                <span class="text-bold"><i class="bi bi-check-circle-fill"></i>&nbsp;fermée</span>
-                
+                <span class="text-bold"><i class="bi bi-check-circle-fill"></i>&nbsp;Clôturé</span>
             @endif
         </td>
         <td>
-            <a href="{{ route('voir-details-maintenance',$maintenance->refMaintenance) }}" class="text-nowrap"><i class="bi bi-eye"></i>&nbsp;voir details</a><br>
+            <a href="{{ route('voir-details-maintenance',$maintenance->refMaintenance) }}" class="text-nowrap"><i class="bi bi-eye"></i>&nbsp;Voir détails</a><br>
             @if($maintenance->etat == 'en cours')
-                <a href="{{ route('prendre-decision',$maintenance->refMaintenance) }}" class="text-dark text-nowrap"><i class="bi bi-clipboard-check"></i>&nbsp;prendre décision</a>
+                <a href="{{ route('prendre-decision',$maintenance->refMaintenance) }}" class="text-dark text-nowrap"><i class="bi bi-clipboard-check"></i>&nbsp;Prendre décision</a>
             @endif
-            <br>
         </td>
-        <td colspan="0"></td>
+        <td></td>
     </tr>
     @empty
     <tr>

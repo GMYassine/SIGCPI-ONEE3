@@ -5,8 +5,8 @@
 @section('main')
 <table class="table table-striped border-cosmic">
     <tr>
-        <th scope="col">Numéro de déclaration</th>
-        <th scope="col">Raisons principales</th>
+        <th scope="col">Numéro de Déclaration</th>
+        <th scope="col">Raisons Principales</th>
         <th scope="col">Auteur</th>
         <th scope="col">Description</th>
         <th scope="col">Matérial</th>
@@ -24,22 +24,22 @@
         <td class="text-break">{{ $declaration->description }}</td>
         <td><a href="{{ route('rechercher-materiel',['designation'=>$declaration->material->designation]) }}">{{ $declaration->material->designation }}</a></td>
         <td class="text-nowrap">{{ $declaration->dateDeclaration }}</td>
-        <td>
+        <td class="text-nowrap" >
             @if($declaration->est_ferme == 'false')
-            <span class="text-bold"><i class="bi bi-folder2-open"></i>&nbsp;ouvrir</span>
+            <span class="text-bold"><i class="bi bi-folder2-open"></i>&nbsp;Ouvrir</span>
 
             @else
-            <span class="text-bold"><i class="bi bi-folder2"></i>&nbsp;fermé</span>
+            <span class="text-bold"><i class="bi bi-folder2"></i>&nbsp;Cloturé</span>
 
             @endif
         </td>
         <td>
             @if($declaration->est_ferme == 'false')
-                <a href="{{ route('envoyer-a-maintenance',[$declaration->material->codeONEE,'consulter-declarations',$declaration->refDeclaration]) }}" class="text-warning text-nowrap"><i class="bi bi-recycle"></i>&nbsp;envoyer à maintenance</a><br>
+                <a href="{{ route('envoyer-a-maintenance',[$declaration->material->codeONEE,'consulter-declarations',$declaration->refDeclaration]) }}" class="text-warning text-nowrap"><i class="bi bi-recycle"></i>&nbsp;Envoyer à Maintenance</a><br>
 
             @else
                 @if($declaration->is_maintenance)
-                    <a href="{{ route('rechercher-maintenance',$declaration->refMaintenance) }}" class="text-primary text-nowrap"><i class="bi bi-search"></i>&nbsp;voir maintenance</a><br>
+                    <a href="{{ route('rechercher-maintenance',$declaration->refMaintenance) }}" class="text-primary text-nowrap"><i class="bi bi-search"></i>&nbsp;Voir Maintenance</a><br>
                 @endif
             @endif
         </td>
@@ -47,7 +47,7 @@
     </tr>
     @empty
     <tr>
-        <td colspan="8" class="text-center text-muted">Il n'y a aucune déclaration.</td>
+        <td colspan="8" class="text-center text-muted">Il n'y a aucune Déclaration.</td>
     </tr>
     @endforelse
 </table>

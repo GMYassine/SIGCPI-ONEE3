@@ -6,7 +6,7 @@
 <form class="form border-cosmic p-2" method="POST" action="{{ route('valider-modifier-materiel',$material->codeONEE) }}">
     @method('PUT')
     <div class="form-group">
-        <label class="my-1">Sous-famille</label>
+        <label class="my-1">Sous-Famille</label>
         <select class="form-control" name="sousFamille">
             <option value="Ordinateur & serveur" {{ $material->sousFamille == 'Ordinateur & serveur' ? 'selected' : '' }}>Ordinateur & serveur</option>
             <option value="Impression & Numérisation" {{ $material->sousFamille == 'Impression & Numérisation' ? 'selected' : '' }}>Impression & Numérisation</option>
@@ -25,11 +25,11 @@
         <input type="text" class="form-control" name="modelle" value="{{ $material->modelle }}">
     </div>
     <div class="form-group">
-        <label class="my-1">Numéro de série</label>
+        <label class="my-1">Numéro de Série</label>
         <input type="text" class="form-control" name="numSerie" value="{{ $material->numSerie }}">
     </div>
     <div class="form-group">
-        <label class="my-1">Contrat d'acquisition</label>
+        <label class="my-1">Contrat d'Acquisition</label>
         <input type="text" class="form-control" name="contratAcquisition" value="{{ $material->contratAcquisition }}">
     </div>
     <div class="form-group">
@@ -41,7 +41,7 @@
         <input type="number" class="form-control" max="{{ date('Y') }}" name="annee" value="{{ $material->annee }}">
     </div>
     <div class="form-group">
-        <label class="my-1">Titulaire du marché</label>
+        <label class="my-1">Titulaire du Marché</label>
         <input type="text" class="form-control" name="titulaireMarche" value="{{ $material->titulaireMarche }}">
     </div>
     <div class="form-group">

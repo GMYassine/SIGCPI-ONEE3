@@ -423,7 +423,7 @@ class AccueilController extends Controller
     }
 
     public function ajouter_materiel(){
-        return view('accueil.admin.ajouter-materiel',['agent'=>$this->agent]);
+        return view('accueil.admin.ajouter-materiel',['agent'=>$this->agent,'agents'=>$this->agent->entite->agents]);
 
     }
 
@@ -439,6 +439,7 @@ class AccueilController extends Controller
             'annee' => 'required|date_format:Y',
             'titulaireMarche' => 'required|string',
             'statut' => 'required|in:actif,hors service',
+            'agent'=> 'required',
         ];
         
         $messages = [
@@ -470,7 +471,7 @@ class AccueilController extends Controller
         $material->annee = $validatedData['annee'];
         $material->titulaireMarche = $validatedData['titulaireMarche'];
         $material->statut = $validatedData['statut'];
-        $material->matricule = $this->agent->matricule;
+        $material->matricule = $validatedData['agent'];
     
         $material->save();
     
@@ -609,15 +610,17 @@ class AccueilController extends Controller
             'max' => 'Le champ :attribute ne peut pas dépasser :max caractères.',
             'email' => 'Le champ :attribute doit être une adresse email valide.',
             'unique' => 'Cette adresse email est déjà utilisée.',
+            'in' => 'La valeur du champ :attribute n\'est pas valide.'
         ];
-
+    
         $q->validate([
             'nomAgent' => 'required|string|max:255',
             'prenomAgent' => 'required|string|max:255',
             'emploiAgent' => 'required|string|max:255',
             'emailAgent' => 'required|email|unique:agents,emailAgent|max:255',
+            'statut' => 'required|in:true,false',
         ], $messages);
-
+    
         $agent = new Agent();
         $agent->matricule  = $q->nomAgent."-".$q->prenomAgent;
         $agent->nomAgent = $q->nomAgent;
@@ -626,11 +629,12 @@ class AccueilController extends Controller
         $agent->emailAgent = $q->emailAgent;
         $agent->mot_de_passeAgent = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%'), 0, 16);
         $agent->refEntite = $this->agent->refEntite;
-
+        $agent->est_admin = $q->statut;
+    
         $agent->save();
-
+    
         return redirect()->route('lister-tous-agents',['success'=>true])->with(['password'=>$agent->mot_de_passeAgent]);
-    }
+    }    
 
     public function rechercher_agent(Request $q){
 
@@ -684,6 +688,7 @@ class AccueilController extends Controller
                 'min:8', 
                 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/'
             ],
+            'statut' => 'required|in:true,false',
         ], $messages);
     
         agent::where('matricule', $matricule)->update([
@@ -692,6 +697,7 @@ class AccueilController extends Controller
             'emploiAgent' => $validatedData['emploiAgent'],
             'emailAgent' => $validatedData['emailAgent'],
             'mot_de_passeAgent' => $validatedData['mot_de_passeAgent'],
+            'est_admin' => $validatedData['statut'],
         ]);
 
         return redirect()->route('lister-tous-agents',['success'=>true]);

@@ -22,7 +22,7 @@
         <input type="email" class="form-control" name="emailAgent" value="{{ $oneAgent->emailAgent }}">
     </div>
     <div class="form-group">
-        <label class="my-1">Mot de passe</label>
+        <label class="my-1">Mot de Passe</label>
         <div class="input-group">
             <input type="password" class="form-control" name="mot_de_passeAgent" value="{{ $oneAgent->mot_de_passeAgent }}" id="passwordInput">
             <div class="input-group-append">
@@ -31,7 +31,18 @@
         </div>
     </div>
     <br>
-    
+    <div class="form-group">
+        <label class="my-1">Est Administrateur</label><br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="statut" id="admin-oui" value="true" {{ $oneAgent->est_admin == 'true' ? 'checked' : '' }}>
+            <label class="form-check-label" for="admin-oui">Oui</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="statut" id="admin-non" value="false" {{ $oneAgent->est_admin == 'false' ? 'checked' : '' }}>
+            <label class="form-check-label" for="admin-non">Non</label>
+        </div>
+    </div><br>      
+
     @csrf
     @foreach($errors->all() as $error )
     <span class="d-block my-2 text-danger"><i class="bi bi-x"></i>{{ $error }}</span>

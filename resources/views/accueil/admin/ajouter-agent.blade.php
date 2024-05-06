@@ -22,7 +22,18 @@
         <input type="email" class="form-control" name="emailAgent" value="{{ old('emailAgent') }}">
     </div>
     <br>
-    
+    <div class="form-group">
+        <label class="my-1">Est administrateur</label><br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="statut" id="admin-oui" value="true">
+            <label class="form-check-label" for="admin-oui">Oui</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="statut" id="admin-non" value="false">
+            <label class="form-check-label" for="admin-non">Non</label>
+        </div>
+    </div><br>    
+
     @foreach($errors->all() as $error )
     <span class="d-block my-2 text-danger"><i class="bi bi-x"></i>{{ $error }}</span>
     @endforeach

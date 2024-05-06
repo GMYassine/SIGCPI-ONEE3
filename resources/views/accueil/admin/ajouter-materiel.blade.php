@@ -53,6 +53,17 @@
         </select>
     </div><br>
 
+    <div class="mb-3">
+        <label for="agent" class="form-label">Affecter à :</label>
+        <select name="agent" id="agent" class="form-select">
+            @forelse ($agents as $oneAgent)
+                <option value="{{ $oneAgent->matricule }}">{{ $oneAgent->nomAgent }} {{ $oneAgent->prenomAgent }}</option>
+            @empty
+                <option value="" disabled selected>No agents available</option>
+            @endforelse
+        </select>
+    </div>
+
     @foreach($errors->all() as $error )
     <span class="d-block my-2 text-danger"><i class="bi bi-x"></i>{{ $error }}</span>
     @endforeach

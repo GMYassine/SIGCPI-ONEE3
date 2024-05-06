@@ -21,16 +21,16 @@
         <th scope="col">Prenom</th>
         <th scope="col">Empoi</th>
         <th scope="col">Email</th>
-        <th scope="col">Mot de pass</th> 
+        <th scope="col">Mot de passe</th> 
         <th scope="col">Action</th>
         <th scope="col"><small class="text-primary text-nowrap">Total ({{ count($agents) }})</small></th>
     </tr>
     @php $agents = $agents->reverse(); @endphp
     @forelse ($agents as $oneAgent)
     <tr>
-        <td>{{ $oneAgent->nomAgent }}</td>
-        <td>{{ $oneAgent->prenomAgent }}</td>
-        <td>{{ $oneAgent->emploiAgent }}</td>
+        <td>{{ ucfirst($oneAgent->nomAgent) }}</td>
+        <td>{{ ucfirst($oneAgent->prenomAgent) }}</td>
+        <td>{{ ucfirst($oneAgent->emploiAgent) }}</td>
         <td>{{ $oneAgent->emailAgent }}</td>
         <td>
             <div class="position-relative border">
@@ -39,9 +39,9 @@
             </div>
         </td>        
         <td>
-            <a href="{{ route('rechercher-materiel',['matricule'=>$oneAgent->matricule]) }}" class="text-nowrap"><i class="bi bi-eye"></i>&nbsp;voir les Matériels</a><br>
-            <a href="{{ route('manager-suspender-agent',$oneAgent->matricule) }}" onclick="return confirm('es-tu sûr?');" class="text-{{ $oneAgent->est_suspender == 'true' ? 'success' : 'danger' }} text-nowrap"><i class="bi bi-{{ $oneAgent->est_suspender == 'true' ? 'slash-circle' : 'ban' }}"></i>&nbsp;{{ $oneAgent->est_suspender == 'true' ? 'réactiver compte' : 'suspender compte' }}</a><br>
-            <a href="{{ route('modifier-agent',$oneAgent->matricule) }}" class="text-info text-nowrap"><i class="bi bi-pencil-square"></i>&nbsp;modifier les informations</a><br>    
+            <a href="{{ route('rechercher-materiel',['matricule'=>$oneAgent->matricule]) }}" class="text-nowrap"><i class="bi bi-eye"></i>&nbsp;Voir les Matériels</a><br>
+            <a href="{{ route('manager-suspender-agent',$oneAgent->matricule) }}" onclick="return confirm('Es-tu sûr?');" class="text-{{ $oneAgent->est_suspender == 'true' ? 'success' : 'danger' }} text-nowrap"><i class="bi bi-{{ $oneAgent->est_suspender == 'true' ? 'slash-circle' : 'ban' }}"></i>&nbsp;{{ $oneAgent->est_suspender == 'true' ? 'Réactiver compte' : 'Suspender compte' }}</a><br>
+            <a href="{{ route('modifier-agent',$oneAgent->matricule) }}" class="text-info text-nowrap"><i class="bi bi-pencil-square"></i>&nbsp;Modifier les informations</a><br>    
         </td>
         <td colspan="0"></td>
     </tr>

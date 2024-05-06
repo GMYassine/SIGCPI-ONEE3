@@ -1,6 +1,6 @@
 @extends('layouts.accueil')
 
-@section('title','Mise à jourer le compte')
+@section('title','Mise à Jourer le Compte')
 
 @section('main')
 <form class="form border-cosmic p-2" method="post" action="{{ route('valider-informations-compte') }}">
@@ -25,11 +25,11 @@
         <input type="text" class="form-control" value="{{ $entite->nomEntite }}" disabled>
     </div>
     <div class="form-group">
-        <label class="my-1">Mot de passe actuel</label>
+        <label class="my-1">Mot de Passe Actuel</label>
         <input type="password" class="form-control" name="motDePassAC">
     </div>
     <div class="form-group">
-        <label class="my-1">Nouveau mot de passe</label>
+        <label class="my-1">Nouveau Mot de Passe</label>
         <input type="password" class="form-control" name="motDePass" id="motDePass">
         <div id="password-strength">
             <span class="d-block my-2 text-muted"><i class="bi bi-check"></i>Minimum 8 caractères</span>
@@ -40,7 +40,7 @@
         </div>
     </div>
     <div class="form-group">
-      <label class="my-1">Répété le nouveau mot de passe</label>
+      <label class="my-1">Répéter le Nouveau Mot de Passe</label>
       <input type="password" class="form-control" name="ReMotDePass" oninput="
         if(document.getElementById('motDePass').value != this.value){
             this.style.outline = '1px solid red';

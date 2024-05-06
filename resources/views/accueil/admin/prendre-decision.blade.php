@@ -1,11 +1,11 @@
 @extends('layouts.accueil')
 
-@section('title','Prendre Decision')
+@section('title','Prendre Décision')
 
 @section('main')
 <form class="form border-cosmic p-2" method="post" action="{{ route('valider-prendre-decision',$maintenance->refMaintenance) }}">
     <div class="form-group">
-        <label class="my-1">Remarquer</label>
+        <label class="my-1">Remarque</label>
         <textarea name="remarquer" class="form-control" rows="3"></textarea>
     </div>
 

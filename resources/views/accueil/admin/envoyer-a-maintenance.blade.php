@@ -1,6 +1,6 @@
 @extends('layouts.accueil')
 
-@section('title','Envoyer à maintenance')
+@section('title','Envoyer à Maintenance')
 
 @section('main')
 @php
@@ -13,7 +13,7 @@ if($declaration){
 }
 @endphp
 <form method="post" action="{{ route('valider-envoyer-a-maintenance',[$material->codeONEE,$src,$refDeclaration]) }}">
-    <h2 class="mb-4 text-secondary">Envoyer <span class="text-dark">{{ $material->designation }}</span> à maintenance</h2>
+    <h2 class="mb-4 text-secondary">Envoyer <span class="text-dark">{{ $material->designation }}</span> à Maintenance</h2>
 
     @if($material->sousFamille === 'Ordinateur & serveur')
 
