@@ -43,15 +43,7 @@
     <div class="form-group">
         <label class="my-1">Titulaire du Marché</label>
         <input type="text" class="form-control" name="titulaireMarche" value="{{ $material->titulaireMarche }}">
-    </div>
-    <div class="form-group">
-        <label class="my-1">Statut</label>
-        <select class="form-control" name="statut">
-            <option value="actif" {{ $material->statut == 'actif' ? 'selected' : '' }}>Actif</option>
-            <option value="hors service" {{ $material->statut == 'hors service' ? 'selected' : '' }}>Hors service</option>
-        </select>
-    </div>
-    <br>
+    </div><br>
 
     @csrf
     @foreach($errors->all() as $error )

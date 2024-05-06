@@ -29,7 +29,7 @@
             <label class="form-check-label" for="admin-oui">Oui</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="statut" id="admin-non" value="false">
+            <input class="form-check-input" type="radio" name="statut" id="admin-non" value="false" checked>
             <label class="form-check-label" for="admin-non">Non</label>
         </div>
     </div><br>    

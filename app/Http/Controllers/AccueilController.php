@@ -495,7 +495,6 @@ class AccueilController extends Controller
             'objectif' => 'required|string',
             'annee' => 'required|date_format:Y',
             'titulaireMarche' => 'required|string',
-            'statut' => 'required|in:actif,hors service',
         ];
         
         $messages = [
@@ -510,8 +509,6 @@ class AccueilController extends Controller
             'annee.required' => 'Le champ année est requis.',
             'annee.date_format' => 'Le champ année doit être une année valide.',
             'titulaireMarche.required' => 'Le champ titulaire du marché est requis.',
-            'statut.required' => 'Le champ statut est requis.',
-            'statut.in' => 'Le statut doit être "actif" ou "hors service".',
         ];        
         
         $validatedData = $q->validate($rules, $messages);
@@ -526,7 +523,6 @@ class AccueilController extends Controller
             'objectif' => $validatedData['objectif'],
             'annee' => $validatedData['annee'],
             'titulaireMarche' => $validatedData['titulaireMarche'],
-            'statut' => $validatedData['statut'],
         ]);
             
         // enregistrer l'action

@@ -18,7 +18,7 @@
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="est_remplace" id="non" value="non" onclick="disableSelect()">
+            <input class="form-check-input" type="radio" name="est_remplace" id="non" value="non" checked onclick="disableSelect()">
             <label class="form-check-label" for="non">
                 Non
             </label>

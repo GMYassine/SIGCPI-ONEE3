@@ -46,12 +46,16 @@
         <input type="text" class="form-control" name="titulaireMarche" value="{{ old('titulaireMarche') }}">
     </div>
     <div class="form-group">
-        <label class="my-1">Statut</label>
-        <select class="form-control" name="statut">
-            <option value="actif" {{ old('statut') == 'actif' ? 'selected' : '' }}>Actif</option>
-            <option value="hors service" {{ old('statut') == 'hors service' ? 'selected' : '' }}>Hors service</option>
-        </select>
-    </div><br>
+        <label class="my-1">Statut</label><br>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="statut" id="statut_actif" checked value="actif" {{ old('statut') == 'actif' ? 'checked' : '' }}>
+            <label class="form-check-label" for="statut_actif">Actif</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="statut" id="statut_hors_service" value="hors service" {{ old('statut') == 'hors service' ? 'checked' : '' }}>
+            <label class="form-check-label" for="statut_hors_service">Hors service</label>
+        </div>
+    </div><br>    
 
     <div class="mb-3">
         <label for="agent" class="form-label">Affecter à :</label>
