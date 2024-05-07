@@ -36,7 +36,7 @@
             <span class="d-block my-2 text-muted"><i class="bi bi-check"></i>Au moins une lettre majuscule</span>
             <span class="d-block my-2 text-muted"><i class="bi bi-check"></i>Au moins une lettre minuscule</span>
             <span class="d-block my-2 text-muted"><i class="bi bi-check"></i>Au moins un chiffre</span>
-            <span class="d-block my-2 text-muted"><i class="bi bi-check"></i>Au moins un caractère spécial</span>
+            <span class="d-block my-2 text-muted"><i class="bi bi-check"></i> Au moins un caractère spécial: <span style="color: blue;">@$!%*?&</span></span>
         </div>
     </div>
     <div class="form-group">

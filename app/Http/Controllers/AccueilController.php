@@ -679,11 +679,7 @@ class AccueilController extends Controller
                 Rule::unique('agents', 'emailAgent')->ignore($matricule, 'matricule'),
                 'max:255',
             ],            
-            'mot_de_passeAgent' => [
-                'string', 
-                'min:8', 
-                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/'
-            ],
+            'mot_de_passeAgent' => 'required|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
             'statut' => 'required|in:true,false',
         ], $messages);
     
