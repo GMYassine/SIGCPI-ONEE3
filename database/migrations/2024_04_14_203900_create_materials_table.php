@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id('codeONEE');
             $table->enum('sousFamille',['Ordinateur & serveur','Impression & Numérisation']);
             $table->string('designation');
+            $table->string('activite',255);
             $table->string('marque');
             $table->string('modelle');
             $table->string('numSerie');
+            $table->string('NomAdresseSite');
             $table->string('contratAcquisition');
             $table->string('objectif');
             $table->year('annee');

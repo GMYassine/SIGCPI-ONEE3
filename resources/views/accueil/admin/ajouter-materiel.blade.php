@@ -14,6 +14,10 @@
         </select>
     </div>
     <div class="form-group">
+        <label class="my-1">Activité</label>
+        <input type="text" class="form-control" name="activite" value="{{ old('activite') }}">
+    </div>
+    <div class="form-group">
         <label class="my-1">Désignation</label>
         <input type="text" class="form-control" name="designation" value="{{ old('designation') }}">
     </div>
@@ -28,6 +32,10 @@
     <div class="form-group">
         <label class="my-1">Numéro de série</label>
         <input type="text" class="form-control" name="numSerie" value="{{ old('numSerie') }}">
+    </div>
+    <div class="form-group">
+        <label class="my-1">Nom et Adresse de Site</label>
+        <input type="text" class="form-control" name="NomAdresseSite" value="{{ old('NomAdresseSite') }}">
     </div>
     <div class="form-group">
         <label class="my-1">Contrat d'acquisition</label>

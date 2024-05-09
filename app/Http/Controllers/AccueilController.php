@@ -431,9 +431,11 @@ class AccueilController extends Controller
         $rules = [
             'sousFamille' => 'required|in:Ordinateur & serveur,Impression & Numérisation',
             'designation' => 'required|string',
+            'activite' => 'required|string',
             'marque' => 'required|string',
             'modelle' => 'required|string',
             'numSerie' => 'required|string',
+            'NomAdresseSite'=> 'required|string',
             'contratAcquisition' => 'required|string',
             'objectif' => 'required|string',
             'annee' => 'required|date_format:Y',
@@ -446,16 +448,19 @@ class AccueilController extends Controller
             'sousFamille.required' => 'Le champ sous-famille est requis.',
             'sousFamille.in' => 'La sous-famille doit être "Ordinateur & serveur" ou "Impression & Numérisation".',
             'designation.required' => 'Le champ désignation est requis.',
+            'activite.required' => 'Le champ activité est requis.',
             'marque.required' => 'Le champ marque est requis.',
             'modelle.required' => 'Le champ modèle est requis.',
             'numSerie.required' => 'Le champ numéro de série est requis.',
+            'NomAdresseSite.required' => 'Le champ nom/adresse du site est requis.',
             'contratAcquisition.required' => 'Le champ contrat d\'acquisition est requis.',
             'objectif.required' => 'Le champ objectif est requis.',
             'annee.required' => 'Le champ année est requis.',
-            'annee.date_format' => 'Le champ année doit être une année valide.',
+            'annee.date_format' => 'Le champ année doit être au format valide (ex: "YYYY").',
             'titulaireMarche.required' => 'Le champ titulaire du marché est requis.',
             'statut.required' => 'Le champ statut est requis.',
             'statut.in' => 'Le statut doit être "actif" ou "hors service".',
+            'agent.required' => 'Le champ agent est requis.',
         ];        
         
         $validatedData = $q->validate($rules, $messages);
@@ -463,9 +468,11 @@ class AccueilController extends Controller
         $material = new material();
         $material->sousFamille = $validatedData['sousFamille'];
         $material->designation = $validatedData['designation'];
+        $material->activite = $validatedData['activite'];
         $material->marque = $validatedData['marque'];
         $material->modelle = $validatedData['modelle'];
         $material->numSerie = $validatedData['numSerie'];
+        $material->NomAdresseSite = $validatedData['NomAdresseSite'];
         $material->contratAcquisition = $validatedData['contratAcquisition'];
         $material->objectif = $validatedData['objectif'];
         $material->annee = $validatedData['annee'];
@@ -488,9 +495,11 @@ class AccueilController extends Controller
         $rules = [
             'sousFamille' => 'required|in:Ordinateur & serveur,Impression & Numérisation',
             'designation' => 'required|string',
+            'activite' => 'required|string',
             'marque' => 'required|string',
             'modelle' => 'required|string',
             'numSerie' => 'required|string',
+            'NomAdresseSite'=> 'required|string',
             'contratAcquisition' => 'required|string',
             'objectif' => 'required|string',
             'annee' => 'required|date_format:Y',
@@ -501,24 +510,28 @@ class AccueilController extends Controller
             'sousFamille.required' => 'Le champ sous-famille est requis.',
             'sousFamille.in' => 'La sous-famille doit être "Ordinateur & serveur" ou "Impression & Numérisation".',
             'designation.required' => 'Le champ désignation est requis.',
+            'activite.required' => 'Le champ activité est requis.',
             'marque.required' => 'Le champ marque est requis.',
             'modelle.required' => 'Le champ modèle est requis.',
             'numSerie.required' => 'Le champ numéro de série est requis.',
+            'NomAdresseSite.required' => 'Le champ nom/adresse du site est requis.',
             'contratAcquisition.required' => 'Le champ contrat d\'acquisition est requis.',
             'objectif.required' => 'Le champ objectif est requis.',
             'annee.required' => 'Le champ année est requis.',
-            'annee.date_format' => 'Le champ année doit être une année valide.',
+            'annee.date_format' => 'Le champ année doit être au format valide (ex: "YYYY").',
             'titulaireMarche.required' => 'Le champ titulaire du marché est requis.',
-        ];        
+        ];           
         
         $validatedData = $q->validate($rules, $messages);
         
         material::where('codeONEE', $codeONEE)->update([
             'sousFamille' => $validatedData['sousFamille'],
             'designation' => $validatedData['designation'],
+            'activite' => $validatedData['activite'],
             'marque' => $validatedData['marque'],
             'modelle' => $validatedData['modelle'],
             'numSerie' => $validatedData['numSerie'],
+            'NomAdresseSite' => $validatedData['NomAdresseSite'],
             'contratAcquisition' => $validatedData['contratAcquisition'],
             'objectif' => $validatedData['objectif'],
             'annee' => $validatedData['annee'],

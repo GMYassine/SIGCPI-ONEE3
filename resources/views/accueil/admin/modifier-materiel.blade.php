@@ -13,6 +13,10 @@
         </select>
     </div>
     <div class="form-group">
+        <label class="my-1">Activité</label>
+        <input type="text" class="form-control" name="activite" value="{{ $material->activite }}">
+    </div>
+    <div class="form-group">
         <label class="my-1">Désignation</label>
         <input type="text" class="form-control" name="designation" value="{{ $material->designation }}">
     </div>
@@ -27,6 +31,10 @@
     <div class="form-group">
         <label class="my-1">Numéro de Série</label>
         <input type="text" class="form-control" name="numSerie" value="{{ $material->numSerie }}">
+    </div>
+    <div class="form-group">
+        <label class="my-1">Nom et Adresse de Site</label>
+        <input type="text" class="form-control" name="NomAdresseSite" value="{{ $material->NomAdresseSite }}">
     </div>
     <div class="form-group">
         <label class="my-1">Contrat d'Acquisition</label>

@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
     {
 
         $entite = entite::create([
-            'nomEntite' => 'ONEP',
+            'nomEntite' => 'AM6/3',
             'libelleEntite' => 'This is an example entity'
         ]);
 
@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'prenomAgent' => 'Doe',
             'emploiAgent' => 'Developer',
             'emailAgent' => 'john.doe@example.com',
-            'mot_de_passeAgent' => 'password123',
+            'mot_de_passeAgent' => 'johnD@example123',
             'est_admin' => 'true',
             'est_suspender' => 'false',
             'refEntite' => 1

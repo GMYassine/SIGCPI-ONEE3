@@ -17,6 +17,10 @@
                         <td><input type="text"  class="px-2"  value="{{$material->designation}}" disabled></td>
                     </tr>
                     <tr>
+                        <td><strong class="text-primary fw-light">Activité :</strong></td>
+                        <td><input type="text"  class="px-2"  value="{{$material->activite}}" disabled></td>
+                    </tr>
+                    <tr>
                         <td><strong class="text-primary fw-light">Marque :</strong></td>
                         <td><input type="text"  class="px-2"  value="{{$material->marque}}" disabled></td>
                     </tr>
@@ -25,8 +29,12 @@
                         <td><input type="text"  class="px-2"  value="{{$material->modelle}}" disabled></td>
                     </tr>
                     <tr>
-                        <td><strong class="text-primary fw-light">Numéro Serie :</strong></td>
+                        <td><strong class="text-primary fw-light">Numéro de Série :</strong></td>
                         <td><input type="text"  class="px-2"  value="{{$material->numSerie}}" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><strong class="text-primary fw-light">Nom et Adresse de Site :</strong></td>
+                        <td><input type="text"  class="px-2"  value="{{$material->NomAdresseSite}}" disabled></td>
                     </tr>
                     <tr>
                         <td><strong class="text-primary fw-light">Contrat Acquisition :</strong></td>
