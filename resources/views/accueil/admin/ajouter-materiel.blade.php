@@ -11,6 +11,7 @@
         <select class="form-control" name="sousFamille">
             <option value="Ordinateur & serveur" {{ old('sousFamille') == 'Ordinateur & serveur' ? 'selected' : '' }}>Ordinateur & serveur</option>
             <option value="Impression & Numérisation" {{ old('sousFamille') == 'Impression & Numérisation' ? 'selected' : '' }}>Impression & Numérisation</option>
+            <option value="Réseau" {{ old('sousFamille') == 'Réseau' ? 'selected' : '' }}>Réseau</option>
         </select>
     </div>
     <div class="form-group">

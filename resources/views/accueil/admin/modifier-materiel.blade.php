@@ -10,6 +10,7 @@
         <select class="form-control" name="sousFamille">
             <option value="Ordinateur & serveur" {{ $material->sousFamille == 'Ordinateur & serveur' ? 'selected' : '' }}>Ordinateur & serveur</option>
             <option value="Impression & Numérisation" {{ $material->sousFamille == 'Impression & Numérisation' ? 'selected' : '' }}>Impression & Numérisation</option>
+            <option value="Réseau" {{ $material->sousFamille == 'Réseau' ? 'selected' : '' }}>Réseau</option>
         </select>
     </div>
     <div class="form-group">

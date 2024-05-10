@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('materials', function (Blueprint $table) {
             $table->id('codeONEE');
-            $table->enum('sousFamille',['Ordinateur & serveur','Impression & Numérisation']);
-            $table->string('designation');
-            $table->string('activite',255);
-            $table->string('marque');
-            $table->string('modelle');
-            $table->string('numSerie');
-            $table->string('NomAdresseSite');
-            $table->string('contratAcquisition');
-            $table->string('objectif');
-            $table->year('annee');
-            $table->string('titulaireMarche');
+            $table->string('sousFamille',255);
+            $table->string('designation')->nullable();
+            $table->string('activite',255)->nullable();
+            $table->string('marque')->nullable();
+            $table->string('modelle')->nullable();
+            $table->string('numSerie')->nullable();
+            $table->string('NomAdresseSite')->nullable();
+            $table->string('contratAcquisition')->nullable();
+            $table->string('objectif')->nullable();
+            $table->string('annee')->nullable();
+            $table->string('titulaireMarche')->nullable();
             $table->enum('statut',['actif', 'hors service'])->default('actif');
             $table->string('matricule');
             $table->foreign('matricule')->references('matricule')->on('agents');
